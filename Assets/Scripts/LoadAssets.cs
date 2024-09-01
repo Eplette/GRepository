@@ -5,11 +5,17 @@ using UnityEngine;
 public class LoadAssets : MonoBehaviour
 {
     public GameObject redObj;
-    
+    [SerializeField] private GameObject blueObj;
+
     // Start is called before the first frame update
     void Start()
     {
+        // v limit the framerate to 60 frames per second
+        QualitySettings.vSyncCount = 0; 
+        Application.targetFrameRate = 60;
         
+        Instantiate(redObj, new Vector3(2, 0, 0), Quaternion.identity);
+        Instantiate(blueObj, new Vector3(-2, 0, 0), Quaternion.identity);
     }
 
     // Update is called once per frame
